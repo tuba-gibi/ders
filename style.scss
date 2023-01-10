@@ -57,8 +57,6 @@ a {
   padding: 1rem;
   line-height: 2rem;
   gap: 1rem;
-  aside {
-  }
   button {
     margin: 2rem;
     padding: 0.5rem;
@@ -113,35 +111,32 @@ a {
     background-color: tomato;
   }
 }
-footer{
-
-    $dark:1;
-   p{
+footer {
+  $dark: 1;
+  p {
     text-align: center;
     color: $fontColor;
     @if $dark == 1 {
-        background-color: gray;
-    }@else if $dark == 2{
-        background-color: aquamarine;
-    }@else{
-        background-color: tomato;
+      background-image: linear-gradient(to top, #f85ecc 0%, #a18cd1 100%);
+    } @else if $dark == 2 {
+      background-color: aquamarine;
+    } @else {
+      background-color: tomato;
     }
-   }
+  }
 }
 
-.sociall{
-    display: flex;
-    height: 10rem;
-    $textColor: white, #55004E, #0FA8A1, #121456, #64C217;
+.sociall {
+  display: flex;
+  height: 10rem;
+  $textColor: white, #55004e, #0fa8a1, #121456, #64c217;
 
-    @for $i from 1 through 5 {
-        .social#{$i}{
-            width:20% ;
-            background-color: lighten(tomato, $i*5);
-            font-size: $i * 1rem;
-            color: nth($textColor, $i);
-        }
+  @for $i from 1 through 5 {
+    .social#{$i} {
+      width: 20%;
+      background-color: lighten(tomato, $i * 5);
+      font-size: $i * 1rem;
+      color: nth($textColor, $i);
     }
-
-
+  }
 }
