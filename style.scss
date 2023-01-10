@@ -1,0 +1,147 @@
+$primaryColor: tomato;
+$bgColor: pink;
+$fontF: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+$fontSize: 1.2rem;
+$myBorder: 2px solid tomato;
+$myNavBG: #30a7c3;
+$myBannerBG: hotpink;
+$fontColor: white;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h2 {
+  font-style: italic;
+  color: rgb(144, 200, 250);
+  margin: 30px auto;
+}
+body {
+  background-color: $bgColor;
+  font-family: $fontF;
+  font-size: $fontSize;
+}
+header {
+  background-color: $myNavBG;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  img {
+    border: $myBorder;
+    border-radius: 50%;
+    min-width: 200px;
+    max-width: 400px;
+  }
+  ul {
+    list-style-type: none;
+    li {
+      display: inline-block;
+    }
+  }
+}
+a {
+  padding: 0.5rem;
+  text-decoration: none;
+  color: $fontColor;
+  &:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+  }
+}
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $myBannerBG;
+  padding: 1rem;
+  line-height: 2rem;
+  gap: 1rem;
+  aside {
+  }
+  button {
+    margin: 2rem;
+    padding: 0.5rem;
+    border-radius: 15px;
+    border: none;
+    background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+    color: $fontColor;
+    width: 5rem;
+  }
+}
+@mixin card($bcc, $color) {
+  background-color: $bcc;
+  color: $color;
+  width: 25%;
+  height: 15rem;
+  border: $myBorder;
+  border-radius: 15px;
+}
+
+.cards {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.8rem;
+  text-align: center;
+  .card1 {
+    @include card(rgb(0, 157, 255), rgb(244, 233, 233));
+  }
+  .card2 {
+    @include card(rgb(0, 217, 255), rgb(104, 153, 6));
+  }
+  .card4 {
+    @include card(rgb(195, 255, 0), rgb(126, 44, 44));
+  }
+  .card3 {
+    @include card(rgb(255, 179, 0), rgb(186, 107, 107));
+  }
+}
+.articles {
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+  text-align: center;
+
+  .article1 {
+    background-color: gray;
+    width: 50%;
+    height: 10rem;
+    border-radius: 10px;
+  }
+  .article2 {
+    @extend .article1;
+    background-color: tomato;
+  }
+}
+footer{
+
+    $dark:1;
+   p{
+    text-align: center;
+    color: $fontColor;
+    @if $dark == 1 {
+        background-color: gray;
+    }@else if $dark == 2{
+        background-color: aquamarine;
+    }@else{
+        background-color: tomato;
+    }
+   }
+}
+
+.sociall{
+    display: flex;
+    height: 10rem;
+    $textColor: white, #55004E, #0FA8A1, #121456, #64C217;
+
+    @for $i from 1 through 5 {
+        .social#{$i}{
+            width:20% ;
+            background-color: lighten(tomato, $i*5);
+            font-size: $i * 1rem;
+            color: nth($textColor, $i);
+        }
+    }
+
+
+}
